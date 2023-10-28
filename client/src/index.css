@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #D7F9D3;
+}
+
+.table {
+  --bs-table-bg: transparent;
+}
+
+.table>thead {
+  --bs-table-color: #014722;
+  font-size: 18px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  border-radius: 5px;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #017737;
+  transform-origin: bottom right;
+  transition: transform 0.7s;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.nav-link {
+  display: inline-block;
+  position: relative;
+}
+
+tr > td > .btn{
+  visibility: hidden;
+
+}
+
+tr:hover > td > .btn{
+  visibility: visible;
+}
+
+
+.table-button {
+  background-color: #6861F2;
+  outline: none;
+  border: none;
+}
+
+.table-button:active {
+  background-color: #6861F2 !important;
+}
+
+.table-button:focus-visible {
+  background-color: #6861F2 !important;
+}
+
+.table-button:hover {
+  background-color: #3537a7;
+}
+
+.add-employee-button {
+  background-color: #017737;
+  outline: none;
+  border: none;
+}
+.add-employee-button:active {
+  background-color: #017737 !important;}
+
+.add-employee-button:focus-visible {
+  background-color: #017737 !important;
+}
+
+.add-employee-button:hover {
+  background-color: #014722;
+}
+
+.form-error-message {
+  color: red;
+  text-align: center;
+}

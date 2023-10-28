@@ -1,6 +1,7 @@
 import knex, { Knex } from "knex";
 import path from "path";
 import fileKnexConfigs from "../../knexConfig";
+//"../../../knexConfig";
 
 type envType = "development" | "production" | "test";
 
