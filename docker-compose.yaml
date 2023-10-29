@@ -15,10 +15,13 @@ services:
       - DB_DATABASE=employees
       - DB_USER=root
       - DB_PASSWORD=password
-    command: npm start
+    command: sh -c "npm run db:setup && npm start"
     depends_on:
-      - mysql
-      - redis
+      # Run healthchecks to ensure services are started
+      mysql:
+        condition: service_healthy
+      redis:
+        condition: service_started
     networks:
       - employees-network
   mysql:
@@ -28,6 +31,13 @@ services:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
+    # Make sure mysql is running and connected before starting server and running db scripts
+    # Basically wait for it to respond to the ping
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p$$MYSQL_ROOT_PASSWORD"]
+      interval: 5s
+      timeout: 20s
+      retries: 10
     networks:
       - employees-network
   redis:
