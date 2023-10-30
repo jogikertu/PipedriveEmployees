@@ -7,7 +7,7 @@ import {
 
 export function fetchTribes() {
   return async (dispatch, getState) => {
-    // use redux store as cache and don't make api call if employees already exist
+    // use redux store as cache and don't make api call if tribes already exist
     const { tribes } = getState();
     if (tribes.list.length > 0) return;
 

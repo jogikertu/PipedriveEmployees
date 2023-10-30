@@ -6,13 +6,9 @@ body {
   background-color: #D7F9D3;
 }
 
-.table {
-  --bs-table-bg: transparent;
-}
-
-.table>thead {
-  --bs-table-color: #014722;
-  font-size: 18px;
+.nav-link {
+  display: inline-block;
+  position: relative;
 }
 
 .nav-link::after {
@@ -34,20 +30,22 @@ a:hover::after {
   transform-origin: bottom left;
 }
 
-.nav-link {
-  display: inline-block;
-  position: relative;
+.table {
+  --bs-table-bg: transparent;
+}
+
+.table>thead {
+  --bs-table-color: #014722;
+  font-size: 18px;
 }
 
 tr > td > .btn{
   visibility: hidden;
-
 }
 
 tr:hover > td > .btn{
   visibility: visible;
 }
-
 
 .table-button {
   background-color: #6861F2;
@@ -84,6 +82,11 @@ tr:hover > td > .btn{
 }
 
 .form-error-message {
+  color: red;
+  text-align: center;
+}
+
+.table-error-message {
   color: red;
   text-align: center;
 }

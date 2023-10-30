@@ -8,7 +8,7 @@ export default function Employees() {
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees.list);
   const isLoading = useSelector((state) => state.employees.loading);
-  const errorLoading = useSelector((state) => state.employees.error);
+  const error = useSelector((state) => state.employees.error);
   const show = useSelector((state) => state.modal.show);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export default function Employees() {
       <EmployeeTable
         employees={employees}
         isLoading={isLoading}
-        errorLoading={errorLoading}
+        error={error}
       />
       <AddEmployeeModal show={show} />
     </>

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { deleteEmployeeId } from "../store/actions/employees";
 import { showModalUpdate } from "../store/actions/modal";
 
-export default function EmployeeTable({ employees, isLoading, errorLoading }) {
+export default function EmployeeTable({ employees, isLoading, error }) {
   const dispatch = useDispatch();
 
   return (
@@ -58,8 +58,8 @@ export default function EmployeeTable({ employees, isLoading, errorLoading }) {
           <Spinner />
         </Row>
       )}
-      {errorLoading && (
-        <p style={{ textAlign: "center", color: "red" }}>
+      {error && (
+        <p className="table-error-message">
           There was an error loading the employees data
         </p>
       )}

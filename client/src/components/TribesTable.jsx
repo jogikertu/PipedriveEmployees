@@ -31,7 +31,7 @@ export default function TribesTable({ tribes, isLoading, error }) {
         </Row>
       )}
       {error && (
-        <p style={{ textAlign: "center", color: "red" }}>
+        <p className="table-error-message">
           There was an error loading the tribes data
         </p>
       )}
