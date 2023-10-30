@@ -7,8 +7,7 @@ import { fetchEmployees } from "../../store/actions/employees";
 export default function Employees() {
   const dispatch = useDispatch();
   const employees = useSelector((state) => state.employees.list);
-  const isLoading = useSelector((state) => state.employees.loading);
-  const error = useSelector((state) => state.employees.error);
+  const status = useSelector((state) => state.employees.status);
   const show = useSelector((state) => state.modal.show);
 
   useEffect(() => {
@@ -17,11 +16,7 @@ export default function Employees() {
 
   return (
     <>
-      <EmployeeTable
-        employees={employees}
-        isLoading={isLoading}
-        error={error}
-      />
+      <EmployeeTable employees={employees} status={status} />
       <AddEmployeeModal show={show} />
     </>
   );

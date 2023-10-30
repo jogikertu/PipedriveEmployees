@@ -3,27 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 export const employeesSlice = createSlice({
   name: "employees",
   initialState: {
-    loading: false,
-    error: false,
-    success: false,
+    status: "default", // default | loading | error
     list: [],
   },
   reducers: {
     loadEmployees: (state) => {
-      state.loading = true;
-      state.success = false;
-      state.error = false;
+      state.status = "loading";
     },
     loadEmployeesSuccess: (state, action) => {
-      state.loading = false;
-      state.success = true;
-      state.error = false;
+      state.status = "default";
       state.list = action.payload;
     },
     loadEmployeesFailure: (state) => {
-      state.loading = false;
-      state.success = false;
-      state.error = true;
+      state.status = "error";
     },
     deleteEmployee: (state, action) => {
       state.list = state.list.filter((x) => x.id !== action.payload);

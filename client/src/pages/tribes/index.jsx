@@ -6,12 +6,11 @@ import { fetchTribes } from "../../store/actions/tribes";
 export default function Tribes() {
   const dispatch = useDispatch();
   const tribes = useSelector((state) => state.tribes.list);
-  const isLoading = useSelector((state) => state.tribes.loading);
-  const error = useSelector((state) => state.tribes.error);
+  const status = useSelector((state) => state.tribes.status);
 
   useEffect(() => {
     dispatch(fetchTribes());
   }, [dispatch]);
 
-  return <TribesTable tribes={tribes} isLoading={isLoading} error={error} />;
+  return <TribesTable tribes={tribes} status={status} />;
 }

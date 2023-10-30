@@ -3,7 +3,10 @@ import Row from "react-bootstrap/Row";
 import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
 
-export default function TribesTable({ tribes, isLoading, error }) {
+export default function TribesTable({ tribes, status }) {
+  const loading = status === "loading";
+  const error = status === "error";
+
   return (
     <Container className="mt-3">
       <Table hover>
@@ -15,7 +18,7 @@ export default function TribesTable({ tribes, isLoading, error }) {
           </tr>
         </thead>
         <tbody>
-          {!isLoading &&
+          {!loading &&
             tribes.map((tribe) => (
               <tr key={tribe.id}>
                 <td>{tribe.id}</td>
@@ -25,7 +28,7 @@ export default function TribesTable({ tribes, isLoading, error }) {
             ))}
         </tbody>
       </Table>
-      {isLoading && (
+      {loading && (
         <Row className="justify-content-center">
           <Spinner />
         </Row>

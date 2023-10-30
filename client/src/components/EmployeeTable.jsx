@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux";
 import { deleteEmployeeId } from "../store/actions/employees";
 import { showModalUpdate } from "../store/actions/modal";
 
-export default function EmployeeTable({ employees, isLoading, error }) {
+export default function EmployeeTable({ employees, status }) {
   const dispatch = useDispatch();
+  const loading = status === "loading";
+  const error = status === "error";
 
   return (
     <Container className="mt-3">
@@ -24,7 +26,7 @@ export default function EmployeeTable({ employees, isLoading, error }) {
           </tr>
         </thead>
         <tbody>
-          {!isLoading &&
+          {!loading &&
             employees.map((employee) => (
               <tr key={employee.id}>
                 <td>{employee.id}</td>
@@ -53,7 +55,7 @@ export default function EmployeeTable({ employees, isLoading, error }) {
             ))}
         </tbody>
       </Table>
-      {isLoading && (
+      {loading && (
         <Row className="justify-content-center">
           <Spinner />
         </Row>

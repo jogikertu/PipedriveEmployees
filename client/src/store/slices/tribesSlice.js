@@ -3,23 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 export const tribesSlice = createSlice({
   name: "tribes",
   initialState: {
-    loading: false,
-    error: false,
+    status: "default", // default | loading | error
     list: [],
   },
   reducers: {
     loadTribes: (state) => {
-      state.loading = true;
-      state.error = false;
+      state.status = "loading";
     },
     loadTribesSuccess: (state, action) => {
-      state.loading = false;
-      state.error = false;
+      state.status = "default";
       state.list = action.payload;
     },
     loadTribesFailure: (state) => {
-      state.loading = false;
-      state.error = true;
+      state.status = "error";
     },
   },
 });
